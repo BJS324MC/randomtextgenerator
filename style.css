@@ -6,6 +6,11 @@ body {
     font-size: 15pt;
     margin:20px;
     font-family: "Roboto Mono";
+    transition: all 1s ease;
+}
+body.dark {
+  background: black;
+  color: white;
 }
 #output{
   border:2px solid black;
@@ -14,6 +19,12 @@ body {
   padding:20px;
   max-height: 300px;
   overflow: scroll;
+  transition: all 1s ease;
+}
+#output.dark {
+  border:2px solid white;
+  background: black;
+  color: white;
 }
 .button{
   color:white;
@@ -24,12 +35,22 @@ body {
   margin:10px;
   min-width:10%;
   box-shadow: 0 0 10px #777777;
+  transition: all 1s ease;
+}
+.button.dark {
+  box-shadow: 0 0 20px #FFFFFF;
 }
 #ln{
   color:black;
   width:20%;
+  transition: all 1s ease;
+}
+#ln.dark {
+  background: black;
+  color: white;
 }
 input{
+  border-radius:10px;
   padding:10px;
   font-size:15pt;
   width:30%;
@@ -45,4 +66,24 @@ input{
 }
 #download{
   background: #682DB9;
+}
+#dark{
+  background: black;
+}
+#dark.dark{
+  color:black;
+  background: white;
+}
+@keyframes disappear{
+  100%{
+    transform: rotateX(90deg);
+  }
+}
+@keyframes appear{
+  0%{
+    transform: rotateX(270deg);
+  }
+  100%{
+    transform: rotateX(360deg);
+  }
 }

@@ -24,7 +24,8 @@ const output = document.getElementById("output"),
   input = document.querySelector("input"),
   btg = document.getElementById("generate"),
   btd = document.getElementById("download"),
-  btc = document.getElementById("copy");
+  btc = document.getElementById("copy"),
+  btdd = document.getElementById("dark");
 fetch("table.json").then(a=>a.json()).then(json=>{
   table=json;
   txt=text(table,input.value);
@@ -49,3 +50,16 @@ btd.addEventListener("click",e=>{
   download(txt,"generated.txt");
   setTimeout(()=>btc.innerText="Download",1000);
 })
+
+btdd.addEventListener("click",e=>{
+  document.getElementById("ln").classList.toggle("dark")
+  output.classList.toggle("dark");
+  btdd.style.animation="disappear 0.5s ease";
+  btdd.addEventListener("animationend",function hand(){
+    btdd.removeEventListener("animationend",hand);
+    btdd.style.animation="appear 0.5s ease";
+    btdd.innerText=btdd.innerText.charAt(0)==="L"?"Dark Mode":"Light Mode";
+  })
+  btdd.classList.toggle("dark")
+  document.body.classList.toggle("dark");
+});
